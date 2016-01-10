@@ -12,6 +12,7 @@ var Left = function(x) {
 
 Left.of = function(x) { return new Left(x) }
 
+// Left
 // does nothing to value (keeps it in container)
 Left.prototype.map = function(f) {
   return this;
@@ -21,6 +22,7 @@ var Right = function(x) {
   return this.__value = x;
 }
 
+// Right
 // executes function on value (keeps it in container)
 Right.prototype.map = function(f) {
   return Right.of(f(this.__value));
@@ -28,9 +30,8 @@ Right.prototype.map = function(f) {
 
 Right.of = function(x) { return new Right(x) }
 
-const bee = function(x){ return 'b' + x }
-console.log(Right.of('rain').map(bee))
-console.log(Left.of('rain').map(bee))
+console.log(Right.of('rain').map(function(x){ return 'b' + x }))
+console.log(Left.of('rain').map(function(x){ return 'b' + x }))
 
 // Left, does nothing (value is from error message)
 // Right executes function on value and keep containerization (same as basic Container)
