@@ -42,7 +42,7 @@ var _keepHighest = function(x,y){ return x >= y ? x : y; };
 //   }, 0, xs);
 // };
 
-var max = reduce(_keepHighest, 0)
+var max = reduce(_keepHighest, -Infinity)
 
 
 // Bonus 1:
